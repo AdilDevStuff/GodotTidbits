@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="153.87297"
+   height="153.87299"
+   viewBox="0 0 153.87297 153.87299"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1"
+     transform="translate(-191.44099,240.45983)">
+    <g
+       id="g4"
+       transform="translate(17.85124,-45.619835)">
+      <rect
+         style="fill:#000000;stroke:#ffffff;stroke-width:10;stroke-linecap:round;stroke-dasharray:none;stroke-dashoffset:7.7952;paint-order:stroke fill markers"
+         id="rect1"
+         width="143.87299"
+         height="143.87299"
+         x="178.58975"
+         y="-189.84"
+         ry="19.235563" />
+      <rect
+         style="fill:#ffffff;stroke:none;stroke-width:4.3262;stroke-linecap:round;stroke-dashoffset:7.7952;paint-order:stroke fill markers"
+         id="rect3"
+         width="26.769629"
+         height="49.12273"
+         x="237.14143"
+         y="-155.18085"
+         ry="6.5676217" />
+      <rect
+         style="fill:#ffffff;stroke:none;stroke-width:4.3262;stroke-linecap:round;stroke-dashoffset:7.7952;paint-order:stroke fill markers"
+         id="rect4"
+         width="26.769629"
+         height="49.12273"
+         x="277.11343"
+         y="-155.18085"
+         ry="6.5676217" />
+    </g>
+  </g>
+</svg>

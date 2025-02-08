@@ -1,0 +1,108 @@
+[gd_scene load_steps=4 format=3 uid="uid://cb2mbdaipk8oc"]
+
+[ext_resource type="Script" uid="uid://be41c3v5883jm" path="res://ui/button_hover/button_hover.gd" id="1_htlod"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70qf8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_70qf8"]
+font_size = 91
+font_color = Color(0, 0, 0, 1)
+outline_size = 15
+
+[node name="ButtonHover" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -11.0
+offset_right = 100.0
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+script = ExtResource("1_htlod")
+intensity = 0.2
+
+[node name="PlayButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70qf8")
+text = "PLAY"
+
+[node name="SettingsButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70qf8")
+text = "SETTINGS"
+
+[node name="ExitButton" type="Button" parent="Buttons"]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_70qf8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_70qf8")
+text = "EXIT"
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -376.5
+offset_top = -157.0
+offset_right = 376.5
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BUTTONS HOVER"
+label_settings = SubResource("LabelSettings_70qf8")
