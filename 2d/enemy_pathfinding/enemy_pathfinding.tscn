@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://dc3dh248t3l7j"]
+
+[ext_resource type="Script" uid="uid://db8wwhc8ryrh3" path="res://2d/enemy_pathfinding/enemy_pathfinding.gd" id="1_qa6le"]
+[ext_resource type="Texture2D" uid="uid://byv2msrdiiarx" path="res://2d/assets/Player.svg" id="2_85kix"]
+[ext_resource type="Script" uid="uid://dam6j828fuph3" path="res://2d/top_down_controller/top_down_controller.gd" id="3_lxt7f"]
+
+[sub_resource type="GDScript" id="GDScript_rgjpv"]
+resource_name = "TopDownPathFinding"
+script/source = "extends Node2D
+
+@onready var player: CharacterBody2D = $Player
+@onready var enemy: CharacterBody2D = $Enemy
+
+#func _physics_process(_delta: float) -> void: 
+	#enemy.update_target_location(player.global_transform.origin)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdgos"]
+size = Vector2(76, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dfpfv"]
+size = Vector2(78, 78)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_clq1n"]
+vertices = PackedVector2Array(1121.71, 441, 1123.48, 614.703, 446, 610.719, 833, 441, 446, 364, 692, 256, 1117.5, 29.6562, 1118.97, 173, 833, 173, 692, 26.7891, 380, 256, 134, 364, 134, 608.891, 32.1406, 608.289, 33.8516, 22.3281, 380, 24.6797)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(5, 9, 8, 3), PackedInt32Array(10, 5, 4, 11), PackedInt32Array(11, 12, 13, 14), PackedInt32Array(11, 14, 15, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -28, -18, 658, 1174, 665, 1167, -20)])
+agent_radius = 50.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_rgjpv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuq6g"]
+size = Vector2(212, 168)
+
+[node name="TopDownPathfinding" type="Node2D"]
+script = SubResource("GDScript_rgjpv")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(759, 382)
+motion_mode = 1
+script = ExtResource("1_qa6le")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+modulate = Color(1, 0.236939, 0.236939, 1)
+texture = ExtResource("2_85kix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+visible = false
+shape = SubResource("RectangleShape2D_tdgos")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Enemy"]
+avoidance_enabled = true
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+position = Vector2(186, 233)
+script = ExtResource("3_lxt7f")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_85kix")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_dfpfv")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_clq1n")
+
+[node name="Obstacle" type="StaticBody2D" parent="NavigationRegion2D"]
+position = Vector2(536, 122)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="NavigationRegion2D/Obstacle"]
+scale = Vector2(212, 168)
+mesh = SubResource("QuadMesh_rgjpv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Obstacle"]
+shape = SubResource("RectangleShape2D_xuq6g")
+
+[node name="Obstacle2" type="StaticBody2D" parent="NavigationRegion2D"]
+position = Vector2(290, 498)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="NavigationRegion2D/Obstacle2"]
+scale = Vector2(212, 168)
+mesh = SubResource("QuadMesh_rgjpv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Obstacle2"]
+shape = SubResource("RectangleShape2D_xuq6g")
+
+[node name="Obstacle3" type="StaticBody2D" parent="NavigationRegion2D"]
+position = Vector2(989, 307)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="NavigationRegion2D/Obstacle3"]
+scale = Vector2(212, 168)
+mesh = SubResource("QuadMesh_rgjpv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/Obstacle3"]
+shape = SubResource("RectangleShape2D_xuq6g")
+
+[connection signal="velocity_computed" from="Enemy/NavigationAgent2D" to="Enemy" method="_on_navigation_agent_2d_velocity_computed"]
