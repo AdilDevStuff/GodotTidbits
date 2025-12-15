@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbwapkk1fq2ra"]
+
+[ext_resource type="Script" uid="uid://cr8eohix0b30b" path="res://extra/timer/timer.gd" id="1_ust4v"]
+
+[node name="Timer" type="Node2D"]
+script = ExtResource("1_ust4v")
+
+[node name="Timer" type="Timer" parent="."]
+ignore_time_scale = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

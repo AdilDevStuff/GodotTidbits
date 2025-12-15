@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d31u0y4e7852v"]
+
+[ext_resource type="Script" uid="uid://yhrowt36mb5d" path="res://extra/inheritance/unit.gd" id="1_6175u"]
+[ext_resource type="Texture2D" uid="uid://byv2msrdiiarx" path="res://2d/assets/Player.svg" id="1_bgl00"]
+
+[node name="Unit" type="Node2D"]
+script = ExtResource("1_6175u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bgl00")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -83.0
+offset_top = -82.5
+offset_right = 90.0
+offset_bottom = -55.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
